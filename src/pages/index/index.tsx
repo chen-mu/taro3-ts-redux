@@ -4,6 +4,7 @@ import './index.scss'
 import { connect } from 'react-redux'
 import * as actions from '../../actions';
 import { RootState } from 'src/store/type'
+import { requestControllerDemo } from './api';
 
 interface IOrderDeliveryProps {
   user: any;
@@ -13,7 +14,12 @@ class Index extends Component<any,IOrderDeliveryProps> {
 
   componentWillMount () { }
 
-  componentDidMount () { }
+  componentDidMount () {
+  requestControllerDemo().then(res=>{
+    console.log('resDemo->',res);
+  })
+
+   }
 
   componentWillUnmount () { }
 
