@@ -1,45 +1,47 @@
 import React, { Component } from 'react'
 import { View, Text, Button } from '@tarojs/components'
-import './index.scss'
+
 import { connect } from 'react-redux'
 import * as actions from '../../actions';
-import { RootState } from 'src/store/type'
+import { RootState } from '../../store/type';
 import { requestControllerDemo } from './api';
+
+import './index.scss'
 
 interface IOrderDeliveryProps {
   user: any;
 }
 
-class Index extends Component<any,IOrderDeliveryProps> {
+class Index extends Component<any, IOrderDeliveryProps> {
 
-  componentWillMount () { }
+  componentWillMount() { }
 
-  componentDidMount () {
-  requestControllerDemo().then(res=>{
-    console.log('resDemo->',res);
-  })
+  componentDidMount() {
+    requestControllerDemo().then(res => {
+      console.log('resDemo->', res);
+    })
 
-   }
+  }
 
-  componentWillUnmount () { }
+  componentWillUnmount() { }
 
-  componentDidShow () { }
+  componentDidShow() { }
 
-  componentDidHide () { }
-  
-  add=()=>{
-    console.log('this.props--->',this.props);
-    
+  componentDidHide() { }
+
+  add = () => {
+    console.log('this.props--->', this.props);
+
     this.props.dispatch(actions.add())
   }
 
-  min=()=>{
+  min = () => {
     this.props.dispatch(actions.minus())
   }
 
-  render () {
-    console.log('12345',this.props.user);
-    
+  render() {
+    console.log('12345', this.props.user);
+
     return (
       <View className='index'>
         <Text>Hello world!</Text>
